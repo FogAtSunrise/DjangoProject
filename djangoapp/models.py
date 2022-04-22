@@ -4,6 +4,7 @@ from django.urls import reverse
 
 # Create your models here.
 class Category(models.Model):
+
     name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
@@ -12,13 +13,13 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.SET(1), default='1')
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=300)
-    size = models.CharField(max_length=300)
-    price = models.IntegerField(default=0)
     description = models.TextField()
-    image = models.ImageField(null=True, blank=True, upload_to="static/img/")
-
+    price = models.IntegerField(default=0)
+    image = models.ImageField(null=True, blank=True, upload_to='djangoapp/static/img/')
+    category = models.ForeignKey(Category, on_delete=models.SET(1), default='1')
+    size = models.CharField(max_length=300)
 
     def __str__(self):
         return self.name
