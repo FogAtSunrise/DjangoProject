@@ -54,6 +54,7 @@ ROOT_URLCONF = 'djangoproject.urls'
 
 TEMPLATES = [
     {
+
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
         'APP_DIRS': True,
@@ -70,7 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoproject.wsgi.application'
 
-
+MEDIA_URL = '/static/img/'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 

@@ -15,7 +15,9 @@
                     <div class="card-edit block_back">
                       <div class="image-container">
                         <a href="{% url 'detail' product.id %}" class="stretched-link"></a>
-                        <div class="square-image card-img-top" style="background-image: url({{ product.image.url }});"></div>
+                        <div class="square-image card-img-top" style="background-image: url({{ product.image.url }});">
+                            <img class="rounded-circle"  src="{% static 'img/1.png' %}" role="img" alt="Not Found" style="width: 100%"/>
+</div>
                       </div>
                       <div class="card-body">
 

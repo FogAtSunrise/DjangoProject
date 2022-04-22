@@ -2,17 +2,17 @@
  {% load static %}
  {% block content %}
   <main class="container col-md-10" id="content">
-        <div class="form-group ">
+        <div class="form-group  block_back p-3">
             <form method="post">{% csrf_token %}
-                    <h3>Удаление товара</h3>
-            <label>Вы уверены, что хотите удалить обявление "{{ product.name }}"? Отменить это действие невозможно.</label>
+                <h3 ><center>Удаление товара</center></h3>
+          <center>  <label>Вы уверены, что хотите удалить обявление "{{ product.name }}"?</label></center>
              <div class="row justify-content-around mb-3">
-            <div class="col-auto">
-                <a href="{% url 'monitor' %}" class="btn btn-secondary">Отмена</a>
-            </div>
-            <div class="col-auto ">
-              <input type="submit" value="Удалить" class="btn btn-primary" id="save">
-            </div>
+
+              <input type="submit" value="Удалить" class="btn btn-success col-md-2 pb-2 me-2 mt-2" id="save">
+
+                <a href="{% url 'monitor' %}" class="btn btn-danger col-md-2 mt-2">Отмена</a>
+
+
              </div>
         </form>
         </div>
