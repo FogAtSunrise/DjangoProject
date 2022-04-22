@@ -1,0 +1,28 @@
+ {% extends 'djangoapp/base.html' %}
+ {% load static %}
+ {% block content %}
+  <main class="container col-md-10" id="content">
+        <div class=" row justify-content-center p-e-5 ">
+            {% for product in product_list %}
+            <div class=" col-6 col-md-5 col-lg-4 col-xl-3 card-container">
+                <div class="card">
+                    <a href="{% url 'detail' product.id %}" class="stretched-link"></a>
+                    <div class="image-container ">
+                        <div class="square-image card-img-top " style="background-image: url({{product.image.url}});"></div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-subtitle">{{ product.name }}</p>
+                        <div class="row justify-content-between ">
+                            <h5 class="col card-title">{{ product.price }} ₽</h5>
+                            <img class="col-auto" src="{% static 'img/heart.png' %}" width="25" height="25" alt="">
+                        </div>
+                         {% if product.count < 5 and product.count > 0%}
+                        <p class="card-text"><small class="text-danger"> Осталось {{ product.count }} шт.!</small></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+ {% endblock %}

@@ -1,0 +1,20 @@
+ {% extends 'djangoapp/base.html' %}
+ {% load static %}
+ {% block content %}
+  <main class="container col-md-10" id="content">
+        <div class="form-group ">
+            <form method="post">{% csrf_token %}
+                    <h3>Удаление товара</h3>
+            <label>Вы уверены, что хотите удалить обявление "{{ product.name }}"? Отменить это действие невозможно.</label>
+             <div class="row justify-content-around mb-3">
+            <div class="col-auto">
+                <a href="{% url 'monitor' %}" class="btn btn-secondary">Отмена</a>
+            </div>
+            <div class="col-auto ">
+              <input type="submit" value="Удалить" class="btn btn-primary" id="save">
+            </div>
+             </div>
+        </form>
+        </div>
+    </main>
+ {% endblock %}

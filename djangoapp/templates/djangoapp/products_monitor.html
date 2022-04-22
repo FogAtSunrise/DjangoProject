@@ -1,0 +1,37 @@
+ {% extends 'djangoapp/base.html' %}
+ {% load static %}
+ {% block content %}
+  <main class="container col-md-10" id="content">
+    <div class=" row justify-content-center p-e-5 ">
+      <div class=" col-6 col-md-5 col-lg-4 col-xl-3 card-container">
+        <div class="card-edit">
+          <a href="{% url 'new_product' %}" class="stretched-link"></a>
+          <img class="card-img-top mb-0" style=" transform: scale(0.35);" src="{% static '/img/plus_black.png' %}" alt="+">
+          <h5 class="col card-title text-center">Добавить товар</h5>
+        </div>
+      </div>
+            {% for product in product_list %}
+                <div class="col-6 col-md-5 col-lg-4 col-xl-3 card-container">
+                    <div class="card-edit">
+                      <div class="image-container">
+                        <a href="{% url 'detail' product.id %}" class="stretched-link"></a>
+                        <div class="square-image card-img-top" style="background-image: url({{ product.image.url }});"></div>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-subtitle">{{ product.name }}</p>
+                        <h5 class="col card-title">{{ product.price }} ₽</h5>
+                        <hr style="margin-bottom:0;">
+                        <div class=" row justify-content-center p-2 ">
+                          <a href="{% url 'edit' product.id %}" class="col-5 btn btn-outline-primary border-0 m-1"><img class="col-auto"
+                              src="{% static 'img/edit.png' %}" width="25" height="25" alt=""></a>
+                          <a href="{% url 'delete' product.id %}" class="col-5 btn btn-outline-danger border-0 m-1"><img class="col-auto" src="{% static 'img/delete.png' %}"
+                              width="25" height="25" alt=""></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+             {% endfor %}
+        </div>
+  </main>
+
+ {% endblock %}
